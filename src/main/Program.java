@@ -1,5 +1,6 @@
 package main;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import entities.Client;
@@ -7,8 +8,12 @@ import entities.Journal;
 
 public class Program {
 
-	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
+	public static Scanner in = new Scanner(System.in);
+
+	public static void main(String[] args) throws IOException {
+
+		menu();
+		Runtime.getRuntime().exec("clear");
 
 		System.out.print("Digite seu nome:> ");
 		String nameC = in.next();
@@ -36,8 +41,23 @@ public class Program {
 
 	public static void menu() {
 		System.out.println("#################################");
-		System.out.println("Bem vindo ao menu! Digite o número correspondente a sua função: ");
+		System.out.println("Digite o número correspondente a sua função: ");
 		System.out.println("1 - Cliente\n2 - Vendedor");
+		Integer escolha = in.nextInt();
+
+		switch (escolha) {
+		case 1: {
+			menuCliente();
+			break;
+		}
+		case 2: {
+			menuVendedor();
+			break;
+		}
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + escolha);
+		}
+
 	}
 
 	public static void menuCliente() {
