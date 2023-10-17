@@ -34,8 +34,7 @@ int main() {
             matriz_inversa[i][j] = 255 - matriz_original[i][j];
         }
     }
-
-    // Exibe a matriz original
+    
     printf("Matriz da imagem original (digitada):\n");
     for (int i = 0; i < linhas; i++) {
         for (int j = 0; j < colunas; j++) {
@@ -43,7 +42,7 @@ int main() {
         }
         printf("\n");
     }
-
+    
     printf("Matriz da imagem invertida (gerada pelo programa):\n");
     for (int i = 0; i < linhas; i++) {
         for (int j = 0; j < colunas; j++) {
